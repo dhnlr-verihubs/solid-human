@@ -116,7 +116,7 @@ const App = () => {
       if (current.face?.tensor) human.tf.dispose(current.face.tensor);
       await human.detect(videoRef); // actual detection; were not capturing output in a local variable as it can also be reached via human.result
       const now = human.now();
-      // console.log(Math.round(10000 / (now - timestamp.detect)) / 10);
+      console.log("FPS: ", Math.round(10000 / (now - timestamp.detect)) / 10);
       timestamp.detect = now;
       if (!isAllOk()) {
         requestAnimationFrame(detectionLoop); // start new frame immediately
