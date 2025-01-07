@@ -4,17 +4,18 @@ import Human from "@vladmandic/human";
 
 const humanConfig = {
   // user configuration for human, used to fine-tune behavior
+  backend: "wasm",
   cacheSensitivity: 0.01,
   modelBasePath: "https://cdn.jsdelivr.net/npm/@vladmandic/human/models",
-  filter: { enabled: true, equalization: true }, // lets run with histogram equilizer
-  debug: true,
+  // filter: { enabled: true, equalization: true }, // lets run with histogram equilizer
+  debug: false,
   face: {
     enabled: true,
     detector: { rotation: true, return: true, mask: false }, // return tensor is used to get detected face image
     description: { enabled: false }, // default model for face descriptor extraction is faceres
     // mobilefacenet: { enabled: true, modelPath: 'https://vladmandic.github.io/human-models/models/mobilefacenet.json' }, // alternative model
     // insightface: { enabled: true, modelPath: 'https://vladmandic.github.io/insightface/models/insightface-mobilenet-swish.json' }, // alternative model
-    iris: { enabled: true }, // needed to determine gaze direction
+    iris: { enabled: false }, // needed to determine gaze direction
     emotion: { enabled: false }, // not needed
     antispoof: { enabled: true }, // enable optional antispoof module
     liveness: { enabled: true }, // enable optional liveness module
@@ -22,7 +23,7 @@ const humanConfig = {
   body: { enabled: false },
   hand: { enabled: false },
   object: { enabled: false },
-  gesture: { enabled: true }, // parses face and iris gestures
+  gesture: { enabled: false }, // parses face and iris gestures
 };
 
 const ok: Record<string, { status: boolean | undefined; val: number }> = {
